@@ -24,20 +24,23 @@ const sciFiMovies = [
   { title: "Blade Runner 2049", year: 2017, description: "A young blade runner's discovery of a long-buried secret leads him to track down former blade runner Rick Deckard, who's been missing for thirty years." }
 ];
 
-// Get the genre dropdown and movie recommendations elements
-const genreDropdown = document.getElementById("genre");
-const movieRecommendations = document.getElementById("movieRecommendations");
+// Select elements in different ways so we are not only using IDs.
+const pageBody = document.body;
+const pageTitle = document.querySelector("h1");
+const genreDropdown = document.querySelector("#genre");
+const movieRecommendations = document.querySelector("#movieRecommendations");
+const themeToggle = document.getElementsByTagName("button")[0];
 
-// Get the theme toggle button
-const themeToggle = document.getElementById("themeToggle");
+// Use the page title as a simple example of a different selector.
+pageTitle.textContent = "🍿 Watch List Generator";
 
 // Set up event listener for theme toggle
 themeToggle.addEventListener("click", function() {
   // Toggle the light-theme class on the body
-  document.body.classList.toggle("light-theme");
+  pageBody.classList.toggle("light-theme");
   
   // Update the button text based on the theme
-  if (document.body.classList.contains("light-theme")) {
+  if (pageBody.classList.contains("light-theme")) {
     themeToggle.textContent = "🌙";
   } else {
     themeToggle.textContent = "☀️";
